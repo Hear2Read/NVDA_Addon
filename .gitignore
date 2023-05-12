@@ -1,0 +1,7 @@
+#Ignore Old Versions of code
+**/Old*
+#ignore DLLs
+**/*.dll
+#ignore output directories.  These should be created by build processes
+**/output/*
+

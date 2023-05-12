@@ -1,0 +1,41 @@
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe.config
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.pdb
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.AssemblyReference.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\MainWindow.g.cs
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\App.g.cs
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager_MarkupCompile.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager_MarkupCompile.lref
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\MainWindow.baml
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.g.resources
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak_Voice_Manager.Properties.Resources.resources
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.GenerateResource.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.CoreCompileInputs.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.exe
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.pdb
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe.manifest
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.application
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.TrustInfo.xml
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.exe.manifest
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\H2R_Speak.nvda-addon\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.application
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe.config
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe.manifest
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.application
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.exe
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\bin\Debug\H2R_Speak Voice Manager.pdb
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csprojAssemblyReference.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\MainWindow.g.cs
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\App.g.cs
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager_MarkupCompile.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager_MarkupCompile.lref
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\MainWindow.baml
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.g.resources
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak_Voice_Manager.Properties.Resources.resources
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.GenerateResource.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.csproj.CoreCompileInputs.cache
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.TrustInfo.xml
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.exe.manifest
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.application
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.exe
+C:\Users\twhit\OneDrive\Documents\tim\hear2read\Hear2ReadNVDA_AddonRepository\H2R_Speak Voice Manager\obj\Debug\H2R_Speak Voice Manager.pdb
