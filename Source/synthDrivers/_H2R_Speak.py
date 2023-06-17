@@ -133,7 +133,7 @@ H2R_curVoice = H2R_Speak_VOICE()
 # constants that can be returned by H2R_Speak_callback
 CALLBACK_CONTINUE_SYNTHESIS=0
 CALLBACK_ABORT_SYNTHESIS=1
-
+	
 def encodeH2RSpeakString(text):
 	return text.encode('utf8')
 
@@ -155,7 +155,7 @@ def callback(wav, numsamples, event):
 		indexes = []
 #		log.info("_H2R_Speak callback looking at events")
 		for e in event:
-			log.info("_H2R_Speak callback: event")
+#			log.info("_H2R_Speak callback: event")
 			if e.type==H2R_SpeakEVENT_MARK:
 				log.info("H2R_SpeakEVENT_MARK found")
 				indexNum = int(decodeH2RSpeakString(e.id.name))
@@ -171,7 +171,7 @@ def callback(wav, numsamples, event):
 				indexByte -= _numBytesPushed
 				indexes.append((indexNum, indexByte))
 			elif e.type==H2R_SpeakEVENT_LIST_TERMINATED:
-#				log.info("H2R_SpeakEVENT_LIST_TERMINATED found")
+#			log.info("H2R_SpeakEVENT_LIST_TERMINATED found")
 				break
 		if not wav:
 			log.info("_H2r_Speak.callback: no wav file isSpeaking = False (end of text to speak)")
@@ -184,7 +184,7 @@ def callback(wav, numsamples, event):
 		wav = string_at(wav, numsamples * sizeof(c_short)) if numsamples>0 else b""
 		prevByte = 0
 		for indexNum, indexByte in indexes:
-			log.info("_H2r_Speak callback: feeding player indexNum = %d, indexByte = %d", indexNum, indexByte)
+#			log.info("_H2r_Speak callback: feeding player indexNum = %d, indexByte = %d", indexNum, indexByte)
 			player.feed(wav[prevByte:indexByte],
 				onDone=lambda indexNum=indexNum: onIndexReached(indexNum))
 			prevByte = indexByte
@@ -211,7 +211,7 @@ class BgThread(threading.Thread):
 			if not func:
 				break
 			try:
-#				log.info("BgThread.run: calling queued function")
+				log.info("[TRW] BgThread.run: calling function args = %s", args)
 				func(*args, **kwargs)
 			except:
 				log.error("Error running function from queue", exc_info=True)
@@ -222,8 +222,10 @@ def _execWhenDone(func, *args, mustBeAsync=False, **kwargs):
 	if mustBeAsync or bgQueue.unfinished_tasks != 0:
 		# Either this operation must be asynchronous or There is still an operation in progress.
 		# Therefore, run this asynchronously in the background thread.
+		log.info("[TRW] _H2R_Speak:_execWhenDone  queueing function arg = %s", args)
 		bgQueue.put((func, args, kwargs))
 	else:
+		log.info("[TRW] _execWhenDone: calling function arg = %s", args)
 		func(*args, **kwargs)
 
 def _speak(text):
@@ -240,7 +242,7 @@ def _speak(text):
 	_numBytesPushed = 0
 	# eSpeak can only process compound emojis when using a UTF8 encoding
 	text2=text.encode('utf8',errors='ignore')
-#log.info("_speak calling H2R_SpeakDLL.H2R_Speak_synthesizeText(%s)", text)
+#	log.info("_speak calling H2R_SpeakDLL.H2R_Speak_synthesizeText(%s)", text)
 	returncode = H2R_SpeakDLL.H2R_Speak_synthesizeText(text2)
 	return returncode
 
@@ -278,21 +280,20 @@ def speak(text):
 	while ( index != 0 and index <= len(text) ):
 		sentence = text[startIndex : index + 1].strip()
 		if sentence != "" :
-#			log.info ("_H2R_Speak.speak queueing %s", sentence)
+#			log.info ("[TRW] _H2R_Speak.speak queueing %s", sentence)
 			_execWhenDone(_speak, sentence, mustBeAsync=True)
-		startIndex = index + 1
-#		log.info("_H2R_Speak.speak finding next sentence starting at index %s", startIndex)
+		startIndex = index + 1#		log.info("_H2R_Speak.speak finding next sentence starting at index %s", startIndex)
 		index = findNextTerminator(text, startIndex)
-#		log.info("_H2R_Speak.speak index = %d", index)
+#		log.info("[TRW]_H2R_Speak.speak index = %d", index)
 	if startIndex < len(text) :
 		sentence = text[startIndex : ].strip()
 		if sentence != "" :
-#			log.info ("_H2R_Speak.speak queueing %s", sentence)
+#			log.info ("[TRW] _H2R_Speak.speak queueing %s", sentence)
 			_execWhenDone(_speak, sentence, mustBeAsync=True)
 	
 def sendIndex(index):
-	log.info("_H2R_Speak.sendIndex entered. index = %d calling onIndexReached", index)
-	_execWhenDone( onIndexReached, index)
+	log.info("[TRW] _H2R_Speak.sendIndex entered. index = %d", index)
+	_execWhenDone( onIndexReached, index, mustBeAsync=True)
 
 def stop():
 	global isSpeaking, bgQueue
@@ -321,7 +322,7 @@ def pause(switch):
 	player.pause(switch)
 
 def setParameter(param,value,relative):
-	log.info("_H2R_Speak.setParameter called param = %d value = %d  relative = %d", param, value, relative)
+	log.info("[TRW] _H2R_Speak.setParameter called param = %d value = %d  relative = %d", param, value, relative)
 	_execWhenDone(H2R_SpeakDLL.H2R_Speak_SetParameter,param,value,relative)
 
 def getParameter(param,current):
@@ -373,7 +374,7 @@ def _setVoiceAndVariant(voice=None, variant=None):
 
 
 def setVoiceAndVariant(voice=None, variant=None):
-#	log.info("_H2R setVoiceAndVariant: entered")
+	log.info("[TRW] _H2R setVoiceAndVariant: entered")
 	_execWhenDone(_setVoiceAndVariant, voice=voice, variant=variant)
 
 def getAvailableLanguages():

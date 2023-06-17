@@ -77,8 +77,8 @@ class SynthDriver(SynthDriver):
 		self.pitch=40
 		self.inflection=75
 		if self.volume < 10: 
-			log.info("H2R Init volume equaled 0 setting to 50")
-			self.volume = 50
+			log.info("H2R Init volume equaled 0 setting to 50%")
+			self.volume = round(50*.8)
 			_H2R_Speak.setParameter(_H2R_Speak.H2R_SpeakVOLUME,self.volume,0)
 
 	def _get_language(self):
@@ -114,26 +114,26 @@ class SynthDriver(SynthDriver):
 		# We output malformed XML, as we might close an outer tag after opening an inner one; e.g.
 		# <voice><prosody></voice></prosody>.
 		# However, H2R_Speak doesn't seem to mind.
-#		log.info("Hear2Read voices.speak: Entered speak routine. _language = %s", self._language)
+		log.info("[TRW] Hear2Read voices.speak: Entered speak routine. _language = %s", self._language)
 		for item in speechSequence:
 #			log.info("Hear2Read voices speak fetching Item from speechSequence")
 			if isinstance(item,str):
-#				log.info("\titem is text = \"" + item + "\" calling _H2R_Speak.speak")
+				log.info("\t[TRW] item is text = \"" + item + "\" calling _H2R_Speak.speak")
 				_H2R_Speak.speak(item)
 #				textList.append(self._processText(item))
 			elif isinstance(item, IndexCommand):
-#				log.info("\titem is IndexCommand = %d. calling _H2R_SPeak.sendIndex", item.index)
+				log.info("\t[TRW] item is IndexCommand = %d. calling _H2R_SPeak.sendIndex", item.index)
 				_H2R_Speak.sendIndex(item.index)
 #				textList.append("<mark name=\"%d\" />"%item.index)
 			elif isinstance(item, CharacterModeCommand):
-				log.info("\titem  is CharacterModeCommand = " + str(item.state))
+				log.info("\t[TRW] item  is CharacterModeCommand = " + str(item.state))
 #				textList.append("<say-as interpret-as=\"characters\">" if item.state else "</say-as>")
 			elif isinstance(item, LangChangeCommand):
-#				log.info("\titem  is LangChangeCommand item.lang = %s", item.lang)
+				log.info("\t[TRW] item  is LangChangeCommand item.lang = %s", item.lang)
 				lang_array = (item.lang).split('_') # for now ignore variant
 				item.lang = lang_array[0]
 				if ( item.lang != self._language ):
-#					log.info("\tLanguage is to be changed.  Calling _H2R_Speak.setVoiceAndVariant")
+					log.info("\tLanguage is to be changed.  Calling _H2R_Speak.setVoiceAndVariant")
 					# queue up a language change to happen at the correct time
 					_H2R_Speak.setVoiceAndVariant(item.lang, None)
 					self._language = item.lang
@@ -141,7 +141,7 @@ class SynthDriver(SynthDriver):
 				log.info("\titem  is BreakCommand")
 #				textList.append('<break time="%dms" />' % item.time)
 			elif type(item) in self.PROSODY_ATTRS:
-				log.info("\titem  is in self.PROSODY_ATTRS %s", item)
+				log.info("\t[TRW] item  is in self.PROSODY_ATTRS %s", item)
 #				if prosody:
 #					# Close previous prosody tag.
 #					textList.append("</prosody>")
@@ -161,7 +161,7 @@ class SynthDriver(SynthDriver):
 #					textList.append(' %s="%d%%"'%(attr,val))
 #				textList.append(">")
 			elif isinstance(item, PhonemeCommand):
-				log.info("\titem  is PhonemeCommand")
+				log.info("\t[TRW] item  is PhonemeCommand")
 #				# We can't use str.translate because we want to reject unknown characters.
 #				try:
 #					phonemes="".join([self.IPA_TO_H2R_SPEAK[char] for char in item.ipa])
@@ -181,11 +181,11 @@ class SynthDriver(SynthDriver):
 #			textList.append("</prosody>")
 		text=u"".join(textList)
 		if (text != ""):
-#			log.info("Hear2Read voices Speak: sending string to _H2R_Speak.speak(text): " + text)
+			log.info("Hear2Read voices Speak: sending string to _H2R_Speak.speak(text): " + text)
 			_H2R_Speak.speak(text)
 
 	def cancel(self):
-#		log.info("Hear2Read voices cancel entered")
+		log.info("[TRW] Hear2Read voices cancel entered")
 		_H2R_Speak.stop()
 
 	def pause(self,switch):
@@ -239,12 +239,13 @@ class SynthDriver(SynthDriver):
 		_H2R_Speak.setParameter(_H2R_Speak.H2R_SpeakRANGE,val,0)
 
 	def _get_volume(self):
-		log.info("Hear2Read voices._get_volume called")
-		return _H2R_Speak.getParameter(_H2R_Speak.H2R_SpeakVOLUME,1)
+		volume = round(_H2R_Speak.getParameter(_H2R_Speak.H2R_SpeakVOLUME,1)/.8)
+		log.info("Hear2Read voices._get_volume called. volume = %d", volume)
+		return volume
 
 	def _set_volume(self,volume):
 		log.info("Hear2Read voices._set_volume called volume = %d", volume)
-		_H2R_Speak.setParameter(_H2R_Speak.H2R_SpeakVOLUME,volume,0)
+		_H2R_Speak.setParameter( _H2R_Speak.H2R_SpeakVOLUME, round(volume*.8), 0 )
 
 	def _getAvailableVoices(self):
 		voices=OrderedDict()
@@ -294,10 +295,10 @@ class SynthDriver(SynthDriver):
 
 	def _onIndexReached(self, index):
 		if index is not None:
-			log.info("Hear2Read voices._onIndexReached: Queueing notify for index %d", index)
+			log.info("Hear2Read voices._onIndexReached: Queueing synthIndexReached.notify, index = %d", index)
 			_H2R_Speak._execWhenDone(synthIndexReached.notify, synth=self, index=index)
 		else:
-			log.info("Hear2Read voices._onIndexReached: Queueing done speaking event")
+			log.info("Hear2Read voices._onIndexReached: Queueing synthDoneSpeaking.notify")
 			_H2R_Speak._execWhenDone( synthDoneSpeaking.notify, synth=self)
 
 	def terminate(self):
