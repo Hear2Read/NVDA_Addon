@@ -4,4 +4,5 @@
 **/*.dll
 #ignore output directories.  These should be created by build processes
 **/output/*
+**/"Hear2Read voices.nvda-addon"
 
