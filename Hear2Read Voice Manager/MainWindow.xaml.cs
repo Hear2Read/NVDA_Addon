@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Net;
 using System.Threading;
+using System.Net.Sockets;
 
 namespace Hear2Read_Voice_Manager
 {
@@ -28,6 +29,7 @@ namespace Hear2Read_Voice_Manager
         public MainWindow()
         {
             InitializeComponent();
+            localIP = localIPAddress();
 
             setupDisplay();
         }
@@ -39,7 +41,28 @@ namespace Hear2Read_Voice_Manager
         private String[] flitevoxFiles;
         private string langdir;
         private string voiceName;
+        private string downloadFile;
+        private string localIP;
 
+        private string localIPAddress()
+        {
+            var request = (HttpWebRequest)WebRequest.Create("http://ifconfig.me");
+
+            request.UserAgent = "curl"; // this will tell the server to return the information as if the request was made by the linux "curl" command
+
+            string publicIPAddress;
+
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
+            {
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    publicIPAddress = reader.ReadToEnd();
+                }
+            }
+
+            return publicIPAddress.Replace("\n", "");
+        }
         private void Logo_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -67,6 +90,10 @@ namespace Hear2Read_Voice_Manager
             progressBar.Visibility = Visibility.Collapsed;
             ErrorMessage.Text = voiceName + " Added";
             RefreshList();
+            // Log the download in the download 
+            string httpString = "https://Hear2Read.org/nvda-addon/logDownload.php?file='" + downloadFile + "'&ip='" + localIP + "'";
+            string reply = client.DownloadString("https://Hear2Read.org/nvda-addon/logDownload.php?file=" + downloadFile + "&ip=" + localIP);
+
             Downloading = false;
         }
 
@@ -119,6 +146,7 @@ namespace Hear2Read_Voice_Manager
  //               button.Background = new System.Windows.Media.SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF7cfc00"));
                 Downloading = true;
                 Uri downloadUrl = new Uri("https://Hear2Read.org/Hear2Read/NVDA-Addon/" + file);
+                downloadFile = file;
                 try
                 {
                     client.DownloadFileAsync(downloadUrl, langdir);
