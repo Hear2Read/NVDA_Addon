@@ -92,7 +92,7 @@ namespace Hear2Read_Voice_Manager
             RefreshList();
             // Log the download in the download 
             string httpString = "https://Hear2Read.org/nvda-addon/logDownload.php?file='" + downloadFile + "'&ip='" + localIP + "'";
-            string reply = client.DownloadString("https://Hear2Read.org/nvda-addon/logDownload.php?file=" + downloadFile + "&ip=" + localIP);
+            string reply = client.DownloadString(httpString);
 
             Downloading = false;
         }
@@ -126,11 +126,11 @@ namespace Hear2Read_Voice_Manager
                 if (File.Exists(langdir))
                 {
                     File.Delete(langdir);
-//                    StatusArray[i].Text = "Removed";
                     button.Content = "Add";
-//                    button.Foreground = new System.Windows.Media.SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF101fbb"));
-//                    button.Background = new System.Windows.Media.SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFDDDDDD"));
                     ErrorMessage.Text = voiceName + " Removed";
+                    string httpString = "https://Hear2Read.org/nvda-addon/logDownload.php?removed='" + file + "'&ip='" + localIP + "'";
+                    string reply = client.DownloadString(httpString);
+
                 }
                 else
                 {

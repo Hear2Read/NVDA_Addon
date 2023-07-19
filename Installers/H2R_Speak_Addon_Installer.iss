@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Hear2Read Voice Manager"
-#define MyAppVersion "0.9.230508"
+#define MyAppVersion "0.10.230617"
 #define MyAppPublisher "Hear2Read"
 #define MyAppURL "https://Hear2Read.org"
 #define MyAppExeName "Hear2Read Voice Manager.exe"
@@ -25,7 +25,7 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 PrivilegesRequired=admin
-OutputBaseFilename=Hear2Read_Addon_Installer.v0.9.230508
+OutputBaseFilename=Hear2Read_Addon_Installer.v0.10.230617
 SetupIconFile=../Icon\h2r-32x32-win.ico
 Compression=lzma
 SolidCompression=yes
