@@ -214,9 +214,8 @@ namespace Hear2Read_Voice_Manager
 
         private void Display_NVDA_Voices()
         {
-            string statusText;
             string VoiceName;
-
+            string statusText;
             //First Create the Stackpanels to contain The voice Installed and Available Online
             StackPanel VoicesDockPanel = new StackPanel { MaxHeight = 2000, Name = "UnInstallDockPanel" };
             //Add the doit button to top of the stackpanel

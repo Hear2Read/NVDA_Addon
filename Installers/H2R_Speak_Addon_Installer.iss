@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Hear2Read Voice Manager"
-#define MyAppVersion "0.10.230617"
+#define MyAppVersion "0.11.230724"
 #define MyAppPublisher "Hear2Read"
 #define MyAppURL "https://Hear2Read.org"
 #define MyAppExeName "Hear2Read Voice Manager.exe"

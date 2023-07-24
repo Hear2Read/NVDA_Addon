@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hear2Read_Voice_Manager"
         mc:Ignorable="d"
         Icon="pack://application:,,,/h2r-32x32-win.ico"
-        Title="MainWindow" Height="560" Width="650"
+        Title="MainWindow" Height="660" Width="680"
         FontFamily="Courier New">
 
     <Window.Resources>
